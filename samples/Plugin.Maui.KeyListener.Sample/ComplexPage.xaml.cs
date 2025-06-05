@@ -1,10 +1,8 @@
-﻿using Plugin.Maui.KeyListener;
-
 namespace Plugin.Maui.KeyListener.Sample;
 
-public partial class MainPage : ContentPage
+public partial class ComplexPage : ContentPage
 {
-	public MainPage()
+	public ComplexPage()
 	{
 		InitializeComponent();
 
@@ -22,5 +20,10 @@ public partial class MainPage : ContentPage
 	void PrependOutput(string eventName, KeyPressedEventArgs e)
 	{
 		OutputLabel.Text = $"{eventName}: {e.Modifiers} {e.Keys} {e.KeyChar}" + Environment.NewLine + OutputLabel.Text;
+	}
+
+	private void ClearButton_Clicked(object sender, EventArgs e)
+	{
+		OutputLabel.Text = string.Empty;
 	}
 }

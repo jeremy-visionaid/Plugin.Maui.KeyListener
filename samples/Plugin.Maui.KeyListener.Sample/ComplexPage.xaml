@@ -1,13 +1,15 @@
-﻿<?xml version="1.0" encoding="utf-8" ?>
+<?xml version="1.0" encoding="utf-8" ?>
 <ContentPage
-    x:Class="Plugin.Maui.KeyListener.Sample.MainPage"
+    x:Class="Plugin.Maui.KeyListener.Sample.ComplexPage"
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-    Title="Simple Page">
+    Title="Complex Page">
 
     <ScrollView>
         <VerticalStackLayout Margin="20" Spacing="20">
             <Label Text="Press any key to see the event details" />
+            <Entry Placeholder="Sample Entry for testing" />
+            <Button Clicked="ClearButton_Clicked" Text="Clear" />
             <Label x:Name="OutputLabel" />
         </VerticalStackLayout>
     </ScrollView>

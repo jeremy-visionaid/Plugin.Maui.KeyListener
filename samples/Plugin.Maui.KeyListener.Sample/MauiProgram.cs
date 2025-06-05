@@ -1,8 +1,4 @@
-﻿using Microsoft.Extensions.DependencyInjection;
-using Plugin.Maui.KeyListener;
-using Microsoft.Maui.Handlers;
-
-namespace Plugin.Maui.KeyListener.Sample;
+﻿namespace Plugin.Maui.KeyListener.Sample;
 
 public static class MauiProgram
 {
@@ -19,8 +15,7 @@ public static class MauiProgram
 			});
 
 		builder.Services.AddTransient<MainPage>();
-
-		
+		builder.Services.AddSingleton<ComplexPage>();
 
 		return builder.Build();
 	}

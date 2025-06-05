@@ -28,20 +28,26 @@ public partial class KeyboardBehavior : PlatformBehavior<VisualElement>
 
 	protected override void OnAttachedTo(VisualElement bindable, Android.Views.View platformView)
 	{
+		Debug.WriteLine($"OnAttachedTo {this} {bindable}");
+
 		base.OnAttachedTo(bindable, platformView);
 
 		Android.Views.View? layout = GetParentLayout(platformView);
-		if (layout is null)
-			return;
-
-		layout.KeyPress += OnKeyPress;
-		layout.Focusable = true;
-		layout.FocusableInTouchMode = true;
+		if (layout is not null)
+		{
+			layout.KeyPress += OnKeyPress;
+			layout.Focusable = true;
+			layout.FocusableInTouchMode = true;
+		}
 	}
 
 	protected override void OnDetachedFrom(VisualElement bindable, Android.Views.View platformView)
 	{
-		platformView.KeyPress -= OnKeyPress;
+		Debug.WriteLine($"OnDetachedFrom {this} {bindable}");
+
+		Android.Views.View? layout = GetParentLayout(platformView);
+		if (layout is not null)
+			platformView.KeyPress -= OnKeyPress;
 
 		base.OnDetachedFrom(bindable, platformView);
 	}
