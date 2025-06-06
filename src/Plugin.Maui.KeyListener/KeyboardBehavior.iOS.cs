@@ -30,8 +30,6 @@ namespace Plugin.Maui.KeyListener
 
 		protected override void OnDetachedFrom(VisualElement bindable, UIView platformView)
 		{
-			base.OnDetachedFrom(bindable, platformView);
-
 			var page = GetParentPage(bindable);
 
 			if (page == null)
@@ -43,6 +41,8 @@ namespace Plugin.Maui.KeyListener
 				return;
 
 			keyboardPageViewController.UnregisterKeyboardBehavior(this);
+
+			base.OnDetachedFrom(bindable, platformView);
 		}
 
 		static Page? GetParentPage(VisualElement element)
